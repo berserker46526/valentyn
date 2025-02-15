@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="4.ico">
     <title>Cartas de San Valentín</title>
     <style>
         body {
@@ -180,6 +181,16 @@
             carta.style.top = (sobre.getBoundingClientRect().top + window.scrollY) + 'px';
             carta.style.left = (sobre.getBoundingClientRect().left + xOffset) + 'px';
         }
+
+        document.addEventListener('click', function(event) {
+            let cartas = document.querySelectorAll('.carta');
+            let esCarta = event.target.closest('.carta');
+            let esSobre = event.target.closest('.sobre');
+            
+            if (!esCarta && !esSobre) {
+                cartas.forEach(c => c.style.display = 'none');
+            }
+        });
     </script>
 </body>
 </html>
